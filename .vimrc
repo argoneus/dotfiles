@@ -71,3 +71,8 @@ se nu
 "Added for vimclojure plugin
 let clj_highlight_builtins = 1
 let clj_paren_rainbow = 1
+ 
+"Add 80 column demarcation
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
