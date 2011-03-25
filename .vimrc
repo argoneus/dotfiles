@@ -29,7 +29,6 @@ set noerrorbells         " don't beep
 set nobackup
 
 filetype plugin indent on
-autocmd filetype python set expandtab
 
 "Set color scheme
 if &t_Co >= 256 || has("gui_running")
