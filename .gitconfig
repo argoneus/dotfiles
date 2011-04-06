@@ -1,3 +1,6 @@
 [user]
 	name = Nick Davis
 	email = nick@nickdavis.name
+
+[color]
+	ui = auto
