@@ -3,4 +3,4 @@
 	email = nick@nickdavis.name
 
 [color]
-	ui = auto
+	ui = true 
