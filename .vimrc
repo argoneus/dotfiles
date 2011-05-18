@@ -75,3 +75,5 @@ let clj_paren_rainbow = 1
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+" Added for LaTeX support
+let g:Tex_ViewRule_pdf = 'Preview'
