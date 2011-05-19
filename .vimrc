@@ -78,3 +78,4 @@ match OverLength /\%81v.\+/
 " Added for LaTeX support
 let g:Tex_ViewRule_pdf = 'Preview'
 let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_DefaultTargetFormat = 'pdf'
