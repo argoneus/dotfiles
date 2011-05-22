@@ -4,9 +4,11 @@ if [ `uname` = "Darwin" ]
 then
 	export CLICOLOR=1
 	export LSCOLORS=ExFxCxDxBxegedabagacad
+	alias ls='ls -pF'
+else
+	alias ls='ls --color=auto -pF'
 fi
 
-alias ls='ls -pF'
 alias ll='ls -l'
 alias la='ls -la'
 
