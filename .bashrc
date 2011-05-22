@@ -1,5 +1,12 @@
 export EDITOR=/usr/bin/vim
+# only on Mac OS X
+if [ `uname` = "Darwin" ]
+then
+	export CLICOLOR=1
+	export LSCOLORS=ExFxCxDxBxegedabagacad
+fi
 
+alias ls='ls -pF'
 alias ll='ls -l'
 alias la='ls -la'
 
