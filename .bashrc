@@ -25,6 +25,7 @@ alias gd='git diff'
 alias gl='git log'
 alias gb='git branch'
 alias gck='git checkout'
+alias gsh='git show'
 
 # unified bash history, useful with multiple screen sessions
 # courtesy of http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
