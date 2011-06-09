@@ -68,8 +68,8 @@ cmap w!! w !sudo tee % >/dev/null
 syn on
 se nu
 "Added for vimclojure plugin
-let clj_highlight_builtins = 1
-let clj_paren_rainbow = 1
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow = 1
  
 "Add 80 column demarcation
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
