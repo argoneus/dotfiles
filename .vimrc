@@ -84,3 +84,10 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 " From http://www.linux.com/archive/feature/120126
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
+
+" Code folding
+" Based on http://smartic.us/2009/04/06/code-folding-in-vim/
+set foldmethod=syntax   "fold based on syntax 
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
