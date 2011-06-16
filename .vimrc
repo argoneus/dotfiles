@@ -1,4 +1,10 @@
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 set nocompatible
+
+set modelines=0
 
 "Vim tips from http://nvie.com/posts/how-i-boosted-my-vim/
 set nowrap        " don't wrap lines
@@ -28,7 +34,6 @@ set noerrorbells         " don't beep
 
 set nobackup
 
-filetype plugin indent on
 
 "Set color scheme
 if &t_Co >= 256 || has("gui_running")
