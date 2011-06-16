@@ -87,7 +87,9 @@ else
 	"
 	if match( expand("<sfile>"), expand("$HOME") ) == 0
 		" user installation assumed
-		let s:plugin_dir  	= $HOME.'/.vim/'
+		" Changed s:plugin_dir to work with Pathogen
+		"let s:plugin_dir  	= $HOME.'/.vim/'
+		let s:plugin_dir  	= $HOME.'/.vim/bundle/cvim'
 	else
 		" system wide installation
 		let s:installation					= 'system'
@@ -96,9 +98,13 @@ else
 		let s:C_GlobalTemplateFile  = s:C_GlobalTemplateDir.'/Templates'
 	endif
 	"
-	let s:C_LocalTemplateFile     = $HOME.'/.vim/c-support/templates/Templates'
+	" Changed s:C_LocalTemplateFile to work with Pathogen
+	"let s:C_LocalTemplateFile     = $HOME.'/.vim/c-support/templates/Templates'
+	let s:C_LocalTemplateFile     = $HOME.'/.vim/bundle/cvim/c-support/templates/Templates'
 	let s:C_LocalTemplateDir      = fnamemodify( s:C_LocalTemplateFile, ":p:h" ).'/'
-	let s:C_CodeSnippets  				= $HOME.'/.vim/c-support/codesnippets/'
+	" Changed s:C_CodeSnippets to work with Pathogen
+	"let s:C_CodeSnippets  				= $HOME.'/.vim/c-support/codesnippets/'
+	let s:C_CodeSnippets  				= $HOME.'/.vim/bundle/cvim/c-support/codesnippets/'
 	let s:C_IndentErrorLog				= $HOME.'/.indent.errorlog'
 	"
   let s:escfilename 	= ' \%#[]'
