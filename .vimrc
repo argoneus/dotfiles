@@ -35,6 +35,7 @@ set noerrorbells         " don't beep
 
 set nobackup
 
+let mapleader = ","
 
 "Set color scheme
 if &t_Co >= 256 || has("gui_running")
