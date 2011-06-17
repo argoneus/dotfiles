@@ -98,3 +98,6 @@ set foldmethod=syntax   "fold based on syntax
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+" NERDTree ignore files
+let NERDTreeIgnore=['\.o$', '\~$']
