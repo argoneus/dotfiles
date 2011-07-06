@@ -35,6 +35,7 @@ set noerrorbells         " don't beep
 
 set nobackup
 
+"Map leader to ,
 let mapleader = ","
 let maplocalleader = ","
 
@@ -65,6 +66,12 @@ map <right> <nop>
 "not the next line
 nnoremap j gj
 nnoremap k gk
+
+"Navigating window splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 "Clear search highlight buffer
 nmap <silent> ,/ :nohlsearch<CR>
