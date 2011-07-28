@@ -39,6 +39,15 @@ set nobackup
 let mapleader = ","
 let maplocalleader = ","
 
+"Turn off highlighting
+nnoremap <leader><space> :noh<cr>
+
+"Map ; to : for easier writing
+nnoremap ; :
+
+" Map jj in insert mode to escape
+inoremap jj <ESC>
+
 "Set color scheme
 if &t_Co >= 256 || has("gui_running")
    colorscheme macvim 
@@ -57,10 +66,14 @@ endif
 set pastetoggle=<F2>
 
 "Disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 "Changes navigation so pressing down on a wrapped line goes to the next row,
 "not the next line
