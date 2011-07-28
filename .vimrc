@@ -76,9 +76,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"Clear search highlight buffer
-nmap <silent> ,/ :nohlsearch<CR>
-
 " Write a file with sudo if you forgot to open with sudo originally
 cmap w!! w !sudo tee % >/dev/null
 
