@@ -48,16 +48,6 @@ nnoremap ; :
 " Map jj in insert mode to escape
 inoremap jj <ESC>
 
-"Set color scheme
-if &t_Co >= 256 || has("gui_running")
-   colorscheme macvim 
-endif
-
-if &t_Co > 2 || has("gui_running")
-   " switch syntax highlighting on, when the terminal has colors
-   syntax on
-endif
-
 "Highlight whitespace chars
 "set list
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
