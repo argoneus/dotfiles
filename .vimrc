@@ -71,10 +71,6 @@ nnoremap j gj
 nnoremap k gk
 
 "Navigating window splits
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
 " Move the cursor to the window left of the current one
 noremap <silent> ,h :wincmd h<cr>
 " Move the cursor to the window below the current one
@@ -115,5 +111,8 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+"Shortcuts for NERDTree
+imap <F4> <ESC>:NERDTreeToggle<CR>
+map <F4> :NERDTreeToggle<CR>
 " NERDTree ignore files
 let NERDTreeIgnore=['\.o$', '\~$']
