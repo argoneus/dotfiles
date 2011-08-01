@@ -71,10 +71,18 @@ nnoremap j gj
 nnoremap k gk
 
 "Navigating window splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
+" Move the cursor to the window left of the current one
+noremap <silent> ,h :wincmd h<cr>
+" Move the cursor to the window below the current one
+noremap <silent> ,j :wincmd j<cr>
+" Move the cursor to the window above the current one
+noremap <silent> ,k :wincmd k<cr>
+" Move the cursor to the window right of the current one
+noremap <silent> ,l :wincmd l<cr>
 
 " Write a file with sudo if you forgot to open with sudo originally
 cmap w!! w !sudo tee % >/dev/null
