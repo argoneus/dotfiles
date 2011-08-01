@@ -9,8 +9,8 @@ else
 	alias ls='ls --color=auto -pF'
 fi
 
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -lh'
+alias la='ls -lah'
 
 # git commands
 alias gs='git status'
