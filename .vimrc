@@ -90,10 +90,6 @@ se nu
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow = 1
  
-"Add 80 column demarcation
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 " Added for LaTeX support
 let g:Tex_ViewRule_pdf = 'Preview'
 let g:Tex_MultipleCompileFormats = 'pdf'
