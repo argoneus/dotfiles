@@ -118,3 +118,12 @@ map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Shortcut for alternate header
 noremap <leader>a	:A<CR>
+
+" Ack is 'ack-grep' in Debian/Ubuntu, so detect OS
+" and map command if not on Mac OS X
+if has("unix")
+	let s:uname = system("uname")
+	if s:uname != "Darwin\n"
+		let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+	endif
+endif
