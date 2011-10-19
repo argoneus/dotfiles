@@ -35,6 +35,10 @@ set noerrorbells         " don't beep
 
 set nobackup
 
+"tab completion shows matches
+set wildmenu
+set wildmode=list:longest
+
 "Map leader to ,
 let mapleader = ","
 let maplocalleader = ","
