@@ -95,11 +95,6 @@ let g:Tex_ViewRule_pdf = 'Preview'
 let g:Tex_MultipleCompileFormats = 'pdf'
 let g:Tex_DefaultTargetFormat = 'pdf'
 
-" Show status line and always show it
-" From http://www.linux.com/archive/feature/120126
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%03v][%p%%]\ [LEN=%L]
-set laststatus=2
-
 " Code folding
 " Based on http://smartic.us/2009/04/06/code-folding-in-vim/
 set foldmethod=syntax   "fold based on syntax 
