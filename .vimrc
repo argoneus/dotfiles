@@ -126,3 +126,6 @@ if has("unix")
 		let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 	endif
 endif
+
+" Always show status bar
+set laststatus=2
