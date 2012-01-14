@@ -129,3 +129,5 @@ endif
 
 " Always show status bar
 set laststatus=2
+" For vim-powerline
+set t_Co=256
