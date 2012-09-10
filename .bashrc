@@ -28,6 +28,9 @@ alias gck='git checkout'
 alias gsh='git show'
 alias gr='git rm'
 
+# screen
+alias sr='screen -r'
+
 # unified bash history, useful with multiple screen sessions
 # courtesy of http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 
