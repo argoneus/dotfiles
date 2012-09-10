@@ -111,6 +111,8 @@ imap <F4> <ESC>:NERDTreeToggle<CR>
 map <F4> :NERDTreeToggle<CR>
 " NERDTree ignore files
 let NERDTreeIgnore=['\.o$', '\~$']
+" synchronize vim CWD with NERDTree dir
+let NERDTreeChDirMode=2
 
 " ctags shortcut
 map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>

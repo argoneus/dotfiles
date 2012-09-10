@@ -36,3 +36,6 @@ alias sr='screen -r'
 
 shopt -s histappend
 PROMPT_COMMAND="history -a; history -n"
+
+# set vi bindings for bash
+set -o vi
