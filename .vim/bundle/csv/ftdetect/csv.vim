@@ -1,2 +1,6 @@
 " Install Filetype detection for CSV files
-au BufRead,BufNewFile *.tab,*.cov,*.csv,*.dat	set filetype=csv
+augroup ftdetect_csv
+    au!
+    au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
+augroup END
+
