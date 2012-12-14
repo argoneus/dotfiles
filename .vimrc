@@ -133,3 +133,10 @@ endif
 set laststatus=2
 " For vim-powerline
 set t_Co=256
+
+" xmllint formatter
+" adapted from http://vim.wikia.com/wiki/Format_your_xml_document_using_xmllint
+" one or more lines in selection
+vmap <leader>px !xmllint --format -<CR>
+" pretty-print current line
+nmap <leader>px !!xmllint --format -<CR>
