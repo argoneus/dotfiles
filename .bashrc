@@ -1,4 +1,10 @@
 export EDITOR=/usr/bin/vim
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # only on Mac OS X
 if [ `uname` = "Darwin" ]
 then
