@@ -138,3 +138,6 @@ set t_Co=256
 " adapted from http://vim.wikia.com/wiki/Format_your_xml_document_using_xmllint
 " one or more lines in selection
 vmap <leader>px !xmllint --format -<CR>
+
+" Set powerline font
+let g:Powerline_symbols = 'fancy'
