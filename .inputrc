@@ -1,0 +1,6 @@
+# search through bash history using up/down arrows
+# from https://coderwall.com/p/oqtj8w
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
