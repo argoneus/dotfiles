@@ -45,3 +45,9 @@ PROMPT_COMMAND="history -a; history -n"
 
 # set vi bindings for bash
 set -o vi
+
+# Re-attach to screen session if present
+screenout=`screen -ls | head -1 | awk '{print $1}'`
+if [ "$screenout" != "No" ]; then
+	screen -r
+fi
