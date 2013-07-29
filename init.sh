@@ -8,12 +8,22 @@ do
 	echo "current file: $cfg"
 	# skip .git
 	if [ $cfg == ".git" ]; then
+		echo "Skipping .git"
 		continue
 	fi
 
-	if [ ! -e ~/$cfg ]
-	then
+	# link .bashrc as .bash_aliases if _aliases doesn't already exist
+	if [ $cfg == ".bashrc" -a -e ~/$cfg ]; then
+		if [ ! -e ~/.bash_aliases ]; then
+			ln -s $scriptdir/$cfg ~/.bash_aliases
+			echo "Linking $scriptdir/$cfg as ~/.bash_aliases"
+			continue
+		fi
+	fi
+
+	if [ ! -e ~/$cfg ]; then
 		ln -s $scriptdir/$cfg ~/$cfg
+		echo "Linking $scriptdir/$cfg as ~/$cfg"
 	else 
 		echo "File ~/$cfg exists, so not symlinked"
 	fi
