@@ -48,6 +48,7 @@ set -o vi
 
 # Re-attach to screen session if present
 screenout=`screen -ls | head -1 | awk '{print $1}'`
-if [ "$screenout" != "No" ]; then
+screenatch=`screen -ls | head -2 | tail -1 | awk '{print $2}'`
+if [ "$screenout" != "No" -a "$screenatch" != "(Attached)" ]; then
 	screen -r
 fi
