@@ -53,7 +53,7 @@ function! s:TmuxSend(config, text)
     call s:WritePasteFile(a:text)
     call system(l:prefix . " load-buffer " . g:slime_paste_file)
   end
-  call system(l:prefix . " paste-buffer -t " . shellescape(a:config["target_pane"]))
+  call system(l:prefix . " paste-buffer -d -t " . shellescape(a:config["target_pane"]))
 endfunction
 
 function! s:TmuxPaneNames(A,L,P)
@@ -74,6 +74,22 @@ function! s:TmuxConfig() abort
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" whimrepl
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! s:WhimreplSend(config, text)
+  call remote_send(a:config["server_name"], a:text)
+endfunction
+
+function! s:WhimreplConfig() abort
+  if !exists("b:slime_config")
+    let b:slime_config = {"server_name": "whimrepl"}
+  end
+
+  let b:slime_config["server_name"] = input("whimrepl server name: ", b:slime_config["server_name"])
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Helpers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -88,9 +104,9 @@ endfunction
 
 function! s:_EscapeText(text)
   if exists("&filetype")
-    let custom_escape = "_EscapeText_" . &filetype
+    let custom_escape = "_EscapeText_" . substitute(&filetype, "[.]", "_", "g")
     if exists("*" . custom_escape)
-        let result = call(custom_escape, [a:text])
+      let result = call(custom_escape, [a:text])
     end
   end
 
@@ -107,10 +123,18 @@ function! s:_EscapeText(text)
   end
 endfunction
 
-function! s:SlimeSendOp(type, ...) abort
+function! s:SlimeGetConfig()
   if !exists("b:slime_config")
-    call s:SlimeDispatch('Config')
+    if exists("g:slime_default_config")
+      let b:slime_config = g:slime_default_config
+    else
+      call s:SlimeDispatch('Config')
+    end
   end
+endfunction
+
+function! s:SlimeSendOp(type, ...) abort
+  call s:SlimeGetConfig()
 
   let sel_save = &selection
   let &selection = "inclusive"
@@ -135,9 +159,7 @@ function! s:SlimeSendOp(type, ...) abort
 endfunction
 
 function! s:SlimeSendRange() range abort
-  if !exists("b:slime_config")
-    call s:SlimeDispatch('Config')
-  end
+  call s:SlimeGetConfig()
 
   let rv = getreg('"')
   let rt = getregtype('"')
@@ -147,9 +169,7 @@ function! s:SlimeSendRange() range abort
 endfunction
 
 function! s:SlimeSendLines(count) abort
-  if !exists("b:slime_config")
-    call s:SlimeDispatch('Config')
-  end
+  call s:SlimeGetConfig()
 
   let rv = getreg('"')
   let rt = getregtype('"')
@@ -163,14 +183,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! s:SlimeSend(text)
-  if !exists("b:slime_config")
-    let msg = "Slime is not configured for this buffer. Please run :SlimeConfig"
-    echohl ErrorMsg
-    echoerr msg
-    echohl None
-    let v:errmsg = 'slime: ' . msg
-    throw v:errmsg
-  end
+  call s:SlimeGetConfig()
 
   " this used to return a string, but some receivers (coffee-script)
   " will flush the rest of the buffer given a special sequence (ctrl-v)
@@ -199,6 +212,7 @@ endfunction
 
 command -bar -nargs=0 SlimeConfig call s:SlimeConfig()
 command -range -bar -nargs=0 SlimeSend <line1>,<line2>call s:SlimeSendRange()
+command -nargs=+ SlimeSend1 call s:SlimeSend(<q-args> . "\r")
 
 noremap <SID>Operator :<c-u>set opfunc=<SID>SlimeSendOp<cr>g@
 
