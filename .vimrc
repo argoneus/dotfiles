@@ -141,3 +141,11 @@ vmap <leader>px !xmllint --format -<CR>
 
 " Set powerline font
 let g:Powerline_symbols = 'fancy'
+"let g:Powerline_theme = 'short'
+let g:Powerline_colorscheme='solarized256_dark'
+
+" Enable Solarized colorscheme
+syntax enable
+set background=dark
+colorscheme solarized
+
