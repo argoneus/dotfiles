@@ -149,3 +149,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Highlight current line
+set cursorline
+
+" Add vim-slime support for ipython when editing .py files
+au VimEnter * if &filetype == "python" | let g:slime_python_ipython = 1 | endif
