@@ -37,6 +37,10 @@ alias gr='git rm'
 # screen
 alias sr='screen -r'
 
+# set history size
+HISTSIZE=50000
+HISTFILESIZE=100000
+
 # unified bash history, useful with multiple screen sessions
 # courtesy of http://superuser.com/questions/37576/can-history-files-be-unified-in-bash
 
