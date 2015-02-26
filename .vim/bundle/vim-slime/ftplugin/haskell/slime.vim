@@ -1,6 +1,4 @@
-let s:not_prefixable_keywords = [ "import", "data", "instance", "class", "{-#", "--"]
-
-" let g:slime_default_config = {"socket_name": "default", "target_pane": "3:0.0"}
+let s:not_prefixable_keywords = [ "import", "data", "instance", "class", "{-#", "type", "case", "do", "let", "default", "foreign", "--"]
 
 " Prepend certain statements with 'let'
 function! Perhaps_prepend_let(lines)
@@ -23,29 +21,18 @@ endfunction
 " guess correct number of spaces to indent
 " (tabs are not allowed)
 function! Get_indent_string()
-    if &tabstop > 0
-        let l:n = &tabstop
-    elseif &softtabstop > 0
-        let l:n = &softtabstop
-    elseif &shiftwidth > 0
-        let l:n = &shiftwidth
-    else
-        let l:n = 4
-    endif
-    return repeat(" ", l:n)
+    return repeat(" ", 4)
 endfunction
 
-" indent lines except for first one
+" indent lines except for first one.
+" lines are indented equally, so indentation is preserved.
 function! Indent_lines(lines)
     let l:lines = a:lines
     let l:indent = Get_indent_string()
     let l:i = 1
     let l:len = len(l:lines)
     while l:i < l:len
-        " only indent if not starting with space
-        if l:lines[l:i][0] != " "
-            let l:lines[l:i] = l:indent . l:lines[l:i]
-        endif
+        let l:lines[l:i] = l:indent . l:lines[l:i]
         let l:i += 1
     endwhile
     return l:lines
