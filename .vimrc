@@ -139,6 +139,10 @@ set t_Co=256
 " one or more lines in selection
 vmap <leader>px !xmllint --format -<CR>
 
+" htmltidy formatter
+" one or more lines in selection
+vmap <leader>hx !tidy -<CR>
+
 " Set powerline font
 let g:Powerline_symbols = 'fancy'
 "let g:Powerline_theme = 'short'
