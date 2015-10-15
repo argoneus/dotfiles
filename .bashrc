@@ -53,6 +53,8 @@ set -o vi
 # Re-attach to screen session if present
 screenout=`screen -ls | head -1 | awk '{print $1}'`
 screenatch=`screen -ls | head -2 | tail -1 | awk '{print $NF}'`
+# If multiple screen sessions are running, attach to the first one in the list
+screenname=`screen -ls | head -2 | tail -1 | awk '{print $1}' | awk -F. '{print $2}'`
 if [ "$screenout" != "No" -a "$screenatch" != "(Attached)" ]; then
-	screen -r
+	screen -r $screenname
 fi
