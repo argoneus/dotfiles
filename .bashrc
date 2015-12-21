@@ -34,8 +34,15 @@ alias gck='git checkout'
 alias gsh='git show'
 alias gr='git rm'
 
-# screen
-alias sr='screen -r'
+# save screenname to last used screen
+# session file
+screenname() {
+	screen -r $1
+	echo $1 > .screenlast
+}
+# screen aliases
+alias sr=screenname
+alias sl='screen -r `cat .screenlast`'
 
 # set history size
 HISTSIZE=50000
@@ -54,7 +61,11 @@ set -o vi
 screenout=`screen -ls | head -1 | awk '{print $1}'`
 screenatch=`screen -ls | head -2 | tail -1 | awk '{print $NF}'`
 # If multiple screen sessions are running, attach to the first one in the list
-screenname=`screen -ls | head -2 | tail -1 | awk '{print $1}' | awk -F. '{print $2}'`
+if [[ -e .screenlast && -n `cat .screenlast` ]]; then
+	screenname=`cat .screenlast`
+else
+	screenname=`screen -ls | head -2 | tail -1 | awk '{print $1}' | awk -F. '{print $2}'`
+fi
 if [ "$screenout" != "No" -a "$screenatch" != "(Attached)" ]; then
-	screen -r $screenname
+	screen -r $screenname && echo $screenname > .screenlast
 fi
