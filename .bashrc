@@ -38,11 +38,11 @@ alias gr='git rm'
 # session file
 screenname() {
 	screen -r $1
-	echo $1 > .screenlast
+	echo $1 > ~/.screenlast
 }
 # screen aliases
 alias sr=screenname
-alias sl='screen -r `cat .screenlast`'
+alias sl='screen -r `cat ~/.screenlast`'
 
 # set history size
 HISTSIZE=50000
@@ -62,7 +62,7 @@ screenout=`screen -ls | head -1 | awk '{print $1}'`
 screenatch=`screen -ls | head -2 | tail -1 | awk '{print $NF}'`
 # If multiple screen sessions are running, attach to the first one in the list
 if [[ -e .screenlast && -n `cat .screenlast` ]]; then
-	screenname=`cat .screenlast`
+	screenname=`cat ~/.screenlast`
 else
 	screenname=`screen -ls | head -2 | tail -1 | awk '{print $1}' | awk -F. '{print $2}'`
 fi
