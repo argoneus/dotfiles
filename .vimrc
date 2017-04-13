@@ -129,6 +129,10 @@ if has("unix")
 	endif
 endif
 
+" added for Bash on Windows terminal
+set term=screen-256color
+set t_ut=
+
 " Always show status bar
 set laststatus=2
 " For vim-powerline
@@ -151,6 +155,7 @@ let g:Powerline_colorscheme='solarized256_dark'
 " Enable Solarized colorscheme
 syntax enable
 set background=dark
+let g:solarized_termcolors=256
 colorscheme solarized
 
 " Highlight current line
