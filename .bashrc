@@ -25,6 +25,7 @@ alias gp='git push'
 alias gc='git commit'
 alias gca='git commit --amend'
 alias gcm='git commit -m'
+alias gcam='git commit -a -m'
 alias gcl='git clone'
 alias ga='git add'
 alias gd='git diff'
@@ -33,6 +34,8 @@ alias gb='git branch'
 alias gck='git checkout'
 alias gsh='git show'
 alias gr='git rm'
+alias lg='lazygit'
+alias glf='git log --follow'
 
 # save screenname to last used screen
 # session file
@@ -66,6 +69,10 @@ if [[ -e .screenlast && -n `cat .screenlast` ]]; then
 else
 	screenname=`screen -ls | head -2 | tail -1 | awk '{print $1}' | awk -F. '{print $2}'`
 fi
-if [ "$screenout" != "No" -a "$screenatch" != "(Attached)" ]; then
-	screen -r $screenname && echo $screenname > .screenlast
+if [ "$screenout" == "No" ]; then
+	screen -S python
+else
+	if [ "$screenout" != "No" -a "$screenatch" != "(Attached)" ]; then
+		screen -r $screenname && echo $screenname > .screenlast
+	fi
 fi
